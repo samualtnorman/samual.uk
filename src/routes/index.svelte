@@ -1,71 +1,81 @@
+<script lang=ts context=module>
+	import JSOnly from "../components/JSOnly.svelte"
+
+	declare function changeTheme(): void
+</script>
+
 <svelte:head>
-	<style>
-		body {
-			text-align: center;
-			font-family: Consolas, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace;
-			background: rgb(8, 16, 8);
-			color: rgb(192, 224, 192);
-			transition: 250ms ease-in-out
+	<title>Samual</title>
+	<meta name="description" content="I like to make stuff.">
+
+	<script>
+		"use strict"
+
+		const html = document.querySelector("html")
+
+		changeTheme()
+
+		function changeTheme() {
+			html.style.background = cssF("rgb", rng(15), rng(31), rng(15))
+			html.style.color = cssF("rgb", 255 - rng(127), 255 - rng(63), 255 - rng(127))
 		}
 
-		a {
-			text-shadow: 0 0 2px, 0 0 5px;
-			color: unset;
-			text-decoration: unset
+		function cssF(name, ...args) {
+			return `${name}(${args.join(", ")})`
 		}
 
-		a:hover {
-			color: white;
-			text-decoration: underline;
-			cursor: pointer;
+		function rng(max) {
+			return Math.floor(Math.random() * (max + 1))
 		}
-
-		.skip-link {
-			position: absolute;
-			top: -40px;
-			left: 0;
-			background: #000000;
-			color: white;
-			padding: 8px;
-			z-index: 100
-		}
-
-		.skip-link:focus {
-			top: 0
-		}
-	</style>
+	</script>
 </svelte:head>
 
-<script lang=ts>
-	import JSOnly from "../components/JSOnly.svelte"
-	import { onMount } from "svelte"
-
-	onMount(changeTheme)
-
-	function changeTheme() {
-		console.log(new Error)
-		document.body.style.background = cssF("rgb", rng(15), rng(31), rng(15))
-		document.body.style.color = cssF("rgb", 255 - rng(127), 255 - rng(63), 255 - rng(127))
+<style>
+	:global(html) {
+		text-align: center;
+		font-family: Consolas, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace;
+		background: rgb(8, 16, 8);
+		color: rgb(192, 224, 192);
+		transition: 250ms ease-in-out
 	}
 
-	function cssF(name: string, ...args: (boolean | number | string)[]) {
-		return `${name}(${args.join(", ")})`
+	a {
+		text-shadow: 0 0 2px, 0 0 5px;
+		color: unset;
+		text-decoration: unset
 	}
 
-	function rng(max: number) {
-		return Math.floor(Math.random() * (max + 1))
+	a:hover {
+		color: white;
+		text-decoration: underline
 	}
-</script>
+
+	.skip-link {
+		position: absolute;
+		top: -40px;
+		left: 0;
+		background: black;
+		color: white;
+		padding: 8px;
+		z-index: 100
+	}
+
+	.skip-link:focus {
+		top: 0
+	}
+</style>
 
 <a class="skip-link" href="#main">Skip to main</a>
 
-<br>
-i'm Samual<br>
------------<br>
-<br>
-<br>
+<header>
+	<br>
+	i'm Samual<br>
+	-----------<br>
+	<br>
+	<br>
+</header>
 
-<div id=main style="display: inline-block; text-align: left">
+<main id=main style="display: inline-block; text-align: left">
 	i like to make stuff<br>
 	<br>
 	everything i make is on <a href="https://github.com/samualtnorman/">GitHub</a><br>
@@ -82,6 +92,7 @@ i'm Samual<br>
 		<br>
 		<br>
 		<br>
-		<a on:click={changeTheme} href=.>don't like the colour theme?</a>
+		<!-- svelte-ignore missing-declaration -->
+		<a on:click={changeTheme} href=".">don't like the colour theme?</a>
 	</JSOnly>
-</div>
+</main>

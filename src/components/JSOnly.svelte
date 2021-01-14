@@ -6,4 +6,4 @@
 	</noscript>
 </svelte:head>
 
-<div class=jsonly><slot></slot></div>
+<div class=jsonly><slot/></div>
