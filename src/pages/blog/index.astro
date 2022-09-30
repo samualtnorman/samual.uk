@@ -1,0 +1,36 @@
+---
+import BaseHead from "@/components/BaseHead.astro"
+import Header from "@/components/Header.astro"
+import { SITE_TITLE, SITE_DESCRIPTION } from "@/config"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head><BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION}/></head>
+
+	<body>
+		<Header/>
+
+		<main>
+			<section>
+				<ul style="list-style-type: none; padding: unset">{
+					(await Astro.glob("./*"))
+						.sort(
+							(a, b) => Number(new Date(b.frontmatter.pubDate)) - Number(new Date(a.frontmatter.pubDate))
+						).map(post =>
+							<li style="display: flex">
+								<time
+									style="flex: 0 0 130px; font-style: italic; color: #595959"
+									datetime={post.frontmatter.pubDate}
+								>
+									{new Date(post.frontmatter.pubDate).toLocaleDateString()}
+								</time>
+
+								<a href={`${post.url}/`}>{post.frontmatter.title}</a>
+							</li>
+						)
+				}</ul>
+			</section>
+		</main>
+	</body>
+</html>

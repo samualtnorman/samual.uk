@@ -1,14 +1,9 @@
 ---
-// Import the global.css file here so that it is included on
-// all pages through the use of the <BaseHead /> component.
-import "../styles/global.css"
+import { SITE_DESCRIPTION, SITE_TITLE } from "@/config"
+import "@/styles/global.css"
+import { lerp } from "@samual/lib/lerp"
 
-export interface Props {
-	title: string
-	description: string
-}
-
-const { title, description } = Astro.props
+export type Props = { title: string, description: string }
 
 export function changeTheme() {
 	document.documentElement.style.setProperty(
@@ -33,34 +28,30 @@ export function changeTheme() {
 	function generateRandomInteger(max: number) {
 		return Math.floor(Math.random() * (max + 1))
 	}
-
-	function lerp(a: number, b: number, amount: number) {
-		return a + ((b - a) * amount)
-	}
 }
 ---
 
 <!-- Global Metadata -->
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<meta name="generator" content={Astro.generator} />
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="generator" content={Astro.generator}/>
 
 <!-- Primary Meta Tags -->
-<title>{title}</title>
-<meta name="title" content={title} />
-<meta name="description" content={description} />
+<title>{SITE_TITLE}</title>
+<meta name="title" content={SITE_TITLE}/>
+<meta name="description" content={SITE_DESCRIPTION}/>
 
 <!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content={Astro.url} />
-<meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
+<meta property="og:type" content="website"/>
+<meta property="og:url" content={Astro.url}/>
+<meta property="og:title" content={SITE_TITLE}/>
+<meta property="og:description" content={SITE_DESCRIPTION}/>
 
 <!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
+<meta property="twitter:card" content="summary_large_image"/>
+<meta property="twitter:url" content={Astro.url}/>
+<meta property="twitter:title" content={SITE_TITLE}/>
+<meta property="twitter:description" content={SITE_DESCRIPTION}/>
 
 <noscript>
 	<style>
@@ -75,7 +66,7 @@ export function changeTheme() {
 
 	changeTheme()
 
-	addEventListener(`DOMContentLoaded`, () => {
+	addEventListener(`DOMContentLoaded`, () =>
 		requestAnimationFrame(() => document.body.style.transition = `250ms ease-in-out`)
-	})
+	)
 </script>

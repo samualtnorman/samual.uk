@@ -1,16 +1,16 @@
 ---
-import BaseHead from "../components/BaseHead.astro"
-import Header from "../components/Header.astro"
-import { SITE_TITLE, SITE_DESCRIPTION } from "../config"
+import BaseHead from "@/components/BaseHead.astro"
+import Header from "@/components/Header.astro"
+import { SITE_TITLE, SITE_DESCRIPTION } from "@/config"
 ---
 
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION}/>
 
 		<script>
-			import { changeTheme } from "../components/BaseHead.astro"
+			import { changeTheme } from "@/components/BaseHead.astro"
 
 			declare const changeThemeAnchorElement: HTMLAnchorElement
 
@@ -19,26 +19,26 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config"
 	</head>
 
 	<body>
-		<Header title={SITE_TITLE} />
+		<Header/>
 
-		<main style="text-align: left; display: inline-block; font-family: monospace;">
-			i like to make stuff<br />
-			<br />
-			everything i make is <a href="https://github.com/samualtnorman/">on GitHub</a><br />
-			<br />
-			<br />
-			i like <a href="https://www.typescriptlang.org/">TypeScript</a> and JavaScript<br />
-			<br />
-			<br />
-			i also like to play games<br />
-			<br />
+		<main style="display: inline-block; font-family: monospace;">
+			i like to make stuff<br/>
+			<br/>
+			everything i make is <a href="https://github.com/samualtnorman/">on GitHub</a><br/>
+			<br/>
+			<br/>
+			i like <a href="https://www.typescriptlang.org/">TypeScript</a> and JavaScript<br/>
+			<br/>
+			<br/>
+			i also like to play games<br/>
+			<br/>
 			like <a href="https://store.steampowered.com/app/469920/hackmud/">hackmud</a>
 
 			<span class="jsOnly">
-				<br />
-				<br />
-				<br />
-				<br />
+				<br/>
+				<br/>
+				<br/>
+				<br/>
 				<a id="changeThemeAnchorElement" href="#">don't like the colour theme?</a>
 			</span>
 		</main>

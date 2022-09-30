@@ -1,10 +1,10 @@
 ---
 import HeaderLink from "./HeaderLink.astro"
-import { SITE_TITLE } from "../config"
+import { SITE_TITLE } from "@/config"
 ---
 
-<header>
-	<h2>
+<header style="margin: 0em 0 2em">
+	<h2 style="margin: 0.5em 0">
 		{SITE_TITLE}<br>
 		{`-`.repeat(SITE_TITLE.length + 1)}
 	</h2>
@@ -15,13 +15,3 @@ import { SITE_TITLE } from "../config"
 		<HeaderLink href="https://github.com/samualtnorman" target="_blank">GitHub</HeaderLink>
 	</nav>
 </header>
-
-<style>
-	header {
-		margin: 0em 0 2em;
-	}
-
-	h2 {
-		margin: 0.5em 0;
-	}
-</style>
