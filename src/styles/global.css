@@ -1,0 +1,87 @@
+/*
+  The CSS in this style tag is based off of Bear Blog's default CSS.
+  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
+  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
+ */
+
+:root {
+	--text-colour: rgb(191, 223, 191);
+	--title-text-colour: rgb(223, 239, 223);
+	--background-colour: rgb(8, 16, 8)
+}
+
+body {
+	font-family: sans-serif;
+	margin: auto;
+	padding: 20px;
+	max-width: 80ch;
+	text-align: center;
+	background-color: var(--background-colour);
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	line-height: 1.5;
+	color: var(--text-colour);
+	font-size: 1rem
+}
+
+h1, h2, h3, h4, h5, h6, strong, b {
+	color: var(--title-text-colour);
+	font-family: monospace
+}
+
+a {
+	text-shadow: 0 0 1px, 0 0 5px;
+	color: unset;
+	text-decoration: unset
+}
+
+a:hover {
+	color: white;
+	text-decoration: underline
+}
+
+nav a {
+	margin-right: 10px;
+}
+
+textarea {
+	width: 100%;
+	font-size: 16px;
+}
+
+input {
+	font-size: 16px;
+}
+
+content {
+	line-height: 1.6;
+}
+
+table {
+	width: 100%;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+pre {
+	padding: 1rem;
+}
+
+pre > code {
+	all: unset;
+}
+
+blockquote {
+	border: 1px solid #999;
+	color: #222;
+	padding: 2px 0px 2px 20px;
+	margin: 0px;
+	font-style: italic;
+}
+
+main {
+	text-align: left
+}
