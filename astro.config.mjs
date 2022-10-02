@@ -1,10 +1,10 @@
-import { defineConfig } from "astro/config"
 import mdx from "@astrojs/mdx"
 import sitemap from "@astrojs/sitemap"
+import critters from "astro-critters"
 
-// https://astro.build/config
-export default defineConfig({
-	site: "https://samual.uk/",
-	integrations: [ mdx(), sitemap() ],
-	server: { port: 8080 }
+export default /** @type {import("astro").AstroUserConfig} */ ({
+	site: `https://samual.uk/`,
+	integrations: [ mdx(), sitemap(), critters() ],
+	server: { port: 8080, host: true },
+	trailingSlash: `always`
 })

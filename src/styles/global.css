@@ -20,13 +20,17 @@ h1, h2, h3, h4, h5, h6, strong, b {
 	font-family: monospace
 }
 
+code {
+	color: var(--title-text-colour)
+}
+
 a {
 	text-shadow: 0 0 1px, 0 0 5px;
 	color: var(--title-text-colour);
 	text-decoration: unset
 }
 
-a:hover {
+a:hover, a:hover code {
 	color: white;
 	text-decoration: underline
 }

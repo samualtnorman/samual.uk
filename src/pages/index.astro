@@ -10,18 +10,22 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "@/config"
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION}/>
 
 		<script>
-			import { changeTheme } from "@/components/BaseHead.astro"
+			import { setTheme } from "@/components/BaseHead.astro"
 
 			declare const changeThemeAnchorElement: HTMLAnchorElement
 
-			changeThemeAnchorElement.addEventListener(`click`, changeTheme)
+			changeThemeAnchorElement.addEventListener(`click`, event => {
+				event.preventDefault()
+				sessionStorage.clear()
+				setTheme()
+			})
 		</script>
 	</head>
 
 	<body>
 		<Header/>
 
-		<main style="display: inline-block; font-family: monospace;">
+		<main style="display: inline-block; font-family: monospace">
 			i like to make stuff<br/>
 			<br/>
 			everything i make is <a href="https://github.com/samualtnorman/">on GitHub</a><br/>
@@ -39,7 +43,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "@/config"
 				<br/>
 				<br/>
 				<br/>
-				<a id="changeThemeAnchorElement" href="#">don't like the colour theme?</a>
+				<a id="changeThemeAnchorElement" href="">don't like the colour theme?</a>
 			</span>
 		</main>
 	</body>
