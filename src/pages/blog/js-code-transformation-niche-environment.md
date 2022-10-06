@@ -1,7 +1,7 @@
 ---
-layout: "@/layouts/BlogPost.astro"
-title: "JavaScript Code Transformation for a Niche Environment"
-pubDate: "Sep 30 2022"
+layout: /layouts/BlogPost.astro
+title: JavaScript Code Transformation for a Niche Environment
+pubDate: Sep 30 2022
 ---
 
 There is a game called [hackmud](https://store.steampowered.com/app/469920/hackmud/).

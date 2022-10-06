@@ -10,11 +10,11 @@
 		"deploy": "cp -r dist/* /mnt/nas/sites/samual.uk/"
 	},
 	"dependencies": {
-		"@astrojs/mdx": "^0.11.3",
+		"@astrojs/mdx": "^0.11.4",
 		"@astrojs/rss": "^1.0.2",
 		"@astrojs/sitemap": "^1.0.0",
 		"@samual/lib": "0.4.0-3091cba",
-		"astro": "^1.4.0",
+		"astro": "^1.4.4",
 		"astro-critters": "^1.0.5",
 		"rollup": "^2.79.1"
 	}

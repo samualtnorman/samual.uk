@@ -1,0 +1,32 @@
+<footer style="margin-top: 2em">
+	<p class="jsOnly">
+		<a id="changeThemeAnchorElement" href="">Don't like the colour theme?</a>
+	</p>
+
+	Contact:
+	<a href="mailto:samualtnorman@gmail.com">Email</a>
+
+	<span class="jsOnly">
+		| <a id="discordAnchorElement" href="">Discord</a>
+	</span>
+</footer>
+
+<script>
+	import { setTheme } from "./BaseHead.astro"
+
+	declare const changeThemeAnchorElement: HTMLAnchorElement
+	declare const discordAnchorElement: HTMLAnchorElement
+
+	changeThemeAnchorElement.addEventListener(`click`, event => {
+		event.preventDefault()
+		sessionStorage.clear()
+		setTheme()
+	})
+
+	discordAnchorElement.addEventListener(`click`, async event => {
+		event.preventDefault()
+		await navigator.clipboard.writeText(`Samual 🦢#4982`)
+		alert(`Discord Tag copied to clipboard`)
+		open(`https://discord.com/channels/@me`)
+	})
+</script>
