@@ -1,25 +1,9 @@
 ---
-import BaseHead from "/components/BaseHead.astro"
-import Footer from "/components/Footer.astro"
-import Header from "/components/Header.astro"
-import { SITE_DESCRIPTION, SITE_TITLE } from "/config"
+import Layout from "/components/Layout.astro"
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION}/>
-	</head>
-
-	<body>
-		<Header/>
-
-		<main style="display: inline-block; font-family: monospace">
-			<p>I like to make stuff</p>
-			<p>I write a lot of <a href="https://www.typescriptlang.org/">TypeScript</a></p>
-			<p>I also play <a href="https://store.steampowered.com/app/469920/hackmud/">hackmud</a></p>
-		</main>
-
-		<Footer/>
-	</body>
-</html>
+<Layout style="font-family: monospace">
+	<p>I like to make stuff</p>
+	<p>I write a lot of <a href="https://www.typescriptlang.org/">TypeScript</a></p>
+	<p>I also play <a href="https://store.steampowered.com/app/469920/hackmud/">hackmud</a></p>
+</Layout>

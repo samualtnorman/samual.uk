@@ -1,39 +1,29 @@
 ---
-import BaseHead from "/components/BaseHead.astro"
-import Footer from "/components/Footer.astro"
-import Header from "/components/Header.astro"
-import { SITE_DESCRIPTION, SITE_TITLE } from "/config"
+import Layout from "/components/Layout.astro"
+
+const posts: {
+	frontmatter: import("/layouts/BlogPost.astro").Props["content"],
+	url: string
+}[] = await Astro.glob("./*")
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-	<head><BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION}/></head>
+<Layout title="Samual's Blog">
+	<section>
+		<ul style="list-style-type: none; padding: unset">{
+			posts
+				.sort((a, b) => Number(new Date(b.frontmatter.pubDate)) - Number(new Date(a.frontmatter.pubDate)))
+				.map(post => (
+					<li style="display: flex">
+						<time
+							style="font-style: italic; margin-right: 2ch; font-family: monospace"
+							datetime={post.frontmatter.pubDate}
+						>
+							{new Date(post.frontmatter.pubDate).toLocaleDateString()}
+						</time>
 
-	<body>
-		<Header/>
-
-		<main>
-			<section>
-				<ul style="list-style-type: none; padding: unset">{
-					(await Astro.glob("./*"))
-						.sort(
-							(a, b) => Number(new Date(b.frontmatter.pubDate)) - Number(new Date(a.frontmatter.pubDate))
-						).map(post =>
-							<li style="display: flex">
-								<time
-									style="flex: 0 0 130px; font-style: italic; color: #595959"
-									datetime={post.frontmatter.pubDate}
-								>
-									{new Date(post.frontmatter.pubDate).toLocaleDateString()}
-								</time>
-
-								<a href={post.url}>{post.frontmatter.title}</a>
-							</li>
-						)
-				}</ul>
-			</section>
-		</main>
-
-		<Footer/>
-	</body>
-</html>
+						<a href={post.url}>{post.frontmatter.title}</a>
+					</li>
+				))
+		}</ul>
+	</section>
+</Layout>

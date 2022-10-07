@@ -1,0 +1,101 @@
+---
+import "/styles/global.css"
+import HeaderLink from "./HeaderLink.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "/config"
+
+export type Props = { title?: string } & astroHTML.JSX.HTMLAttributes
+
+const { title = SITE_TITLE, ...props } = Astro.props
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Global Metadata -->
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1"/>
+		<meta name="generator" content={Astro.generator}/>
+
+		<!-- Primary Meta Tags -->
+		<title>{title}</title>
+		<meta name="title" content={title}/>
+		<meta name="description" content={SITE_DESCRIPTION}/>
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website"/>
+		<meta property="og:url" content={Astro.url}/>
+		<meta property="og:title" content={title}/>
+		<meta property="og:description" content={SITE_DESCRIPTION}/>
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image"/>
+		<meta property="twitter:url" content={Astro.url}/>
+		<meta property="twitter:title" content={title}/>
+		<meta property="twitter:description" content={SITE_DESCRIPTION}/>
+
+		<noscript>
+			<style>
+				.jsOnly {
+					display: none
+				}
+			</style>
+		</noscript>
+
+		<script>
+			import { setTheme } from "/lib"
+
+			declare const changeThemeAnchorElement: HTMLAnchorElement
+			declare const discordAnchorElement: HTMLAnchorElement
+
+			setTheme()
+
+			addEventListener(`DOMContentLoaded`, () =>
+				requestAnimationFrame(() => document.body.style.transition = `250ms ease-in-out`)
+			)
+
+			changeThemeAnchorElement.addEventListener(`click`, event => {
+				event.preventDefault()
+				sessionStorage.clear()
+				setTheme()
+			})
+
+			discordAnchorElement.addEventListener(`click`, async event => {
+				event.preventDefault()
+				await navigator.clipboard.writeText(`Samual 🦢#4982`)
+				alert(`Discord Tag copied to clipboard`)
+				open(`https://discord.com/channels/@me`)
+			})
+		</script>
+	</head>
+
+	<body>
+		<header style="margin-bottom: 2em">
+			<h2 style="margin: 0.5em 0">
+				{SITE_TITLE}<br>
+				{`-`.repeat(SITE_TITLE.length)}
+			</h2>
+
+			<nav>
+				<HeaderLink href="/">Home</HeaderLink>
+				<HeaderLink href="/blog/">Blog</HeaderLink>
+				<HeaderLink href="https://github.com/samualtnorman" target="_blank">GitHub</HeaderLink>
+				<HeaderLink href="https://twitter.com/SamualTNorman" target="_blank">Twitter</HeaderLink>
+			</nav>
+		</header>
+
+		<main {...props}><slot/></main>
+
+		<footer style="margin-top: 2em">
+			<p>
+				Contact:
+				<a href="mailto:samualtnorman@gmail.com">Email</a>
+
+				<span class="jsOnly">
+					| <a id="discordAnchorElement" href="">Discord</a>
+				</span>
+			</p>
+
+			<p><a class="jsOnly" id="changeThemeAnchorElement" href="">Don't like the colour theme?</a></p>
+		</footer>
+	</body>
+</html>

@@ -8,11 +8,11 @@ body {
 	font-family: sans-serif;
 	margin: auto;
 	padding: 20px;
-	max-width: 80ch;
+	max-width: 70ch;
 	text-align: center;
 	background-color: var(--background-colour);
 	color: var(--text-colour);
-	font-size: 1rem
+	font-size: 1.1rem
 }
 
 h1, h2, h3, h4, h5, h6, strong, b {
@@ -36,5 +36,10 @@ a:hover, a:hover code {
 }
 
 main {
-	text-align: left
+	text-align: left;
+	display: inline-block;
+}
+
+article p {
+	text-align: justify
 }

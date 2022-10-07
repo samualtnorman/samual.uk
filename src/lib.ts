@@ -1,9 +1,6 @@
----
-import "/styles/global.css"
-import { lerp } from "@samual/lib/lerp"
-import { SITE_DESCRIPTION, SITE_TITLE } from "/config"
+import lerp from "@samual/lib/lerp"
 
-export type Props = { title: string, description: string }
+export const generateRandomInteger = (max: number) => Math.floor(Math.random() * (max + 1))
 
 export function setTheme() {
 	const backgroundColour = sessionStorage.getItem(`backgroundColour`)
@@ -30,49 +27,4 @@ export function setTheme() {
 		sessionStorage.setItem(`textColour`, textColour)
 		sessionStorage.setItem(`titleTextColour`, titleTextColour)
 	}
-
-	function generateRandomInteger(max: number) {
-		return Math.floor(Math.random() * (max + 1))
-	}
 }
----
-
-<!-- Global Metadata -->
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<meta name="generator" content={Astro.generator}/>
-
-<!-- Primary Meta Tags -->
-<title>{SITE_TITLE}</title>
-<meta name="title" content={SITE_TITLE}/>
-<meta name="description" content={SITE_DESCRIPTION}/>
-
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website"/>
-<meta property="og:url" content={Astro.url}/>
-<meta property="og:title" content={SITE_TITLE}/>
-<meta property="og:description" content={SITE_DESCRIPTION}/>
-
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image"/>
-<meta property="twitter:url" content={Astro.url}/>
-<meta property="twitter:title" content={SITE_TITLE}/>
-<meta property="twitter:description" content={SITE_DESCRIPTION}/>
-
-<noscript>
-	<style>
-		.jsOnly {
-			display: none
-		}
-	</style>
-</noscript>
-
-<script>
-	import { setTheme } from "./BaseHead.astro"
-
-	setTheme()
-
-	addEventListener(`DOMContentLoaded`, () =>
-		requestAnimationFrame(() => document.body.style.transition = `250ms ease-in-out`)
-	)
-</script>

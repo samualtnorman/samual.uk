@@ -1,45 +1,33 @@
 ---
-import BaseHead from "/components/BaseHead.astro"
-import Footer from "/components/Footer.astro"
-import Header from "/components/Header.astro"
+import Layout from "/components/Layout.astro"
 
 export type Props = {
 	content: {
 		title: string
 		description: string
-		pubDate?: string
+		pubDate: string
 		updatedDate?: string
 		heroImage?: string
 	}
 }
 
-const { content: { title, description, pubDate, updatedDate, heroImage } } = Astro.props
+const { content: { title, pubDate: publishedDate, updatedDate, heroImage } } = Astro.props
 ---
 
-<html lang="en">
-	<head><BaseHead title={title} description={description}/></head>
+<Layout title={title}>
+	<article>
+		{heroImage &&
+			<img style="max-width: 100%; height: auto" width="720" height="360" src={heroImage} alt=""/>
+		}
 
-	<body>
-		<Header/>
+		<h1 style="font-size: 2em; margin: 0.25em 0 0; display: inline">{title}</h1>
 
-		<main>
-			<article>
-				{heroImage &&
-					<img style="max-width: 100%; height: auto" width={720} height={360} src={heroImage} alt=""/>
-				}
+		{publishedDate && <time style="float: right; margin: 1ch 0 1ch 1ch">
+			{new Date(publishedDate).toLocaleDateString(undefined, { dateStyle: `full` })}
+		</time>}
 
-				<h1 style="font-size: 2em; margin: 0.25em 0 0; display: inline">{title}</h1>
-
-				{pubDate && <time style="float: right; margin: 1rem 0 1rem 1rem">
-					{new Date(pubDate).toLocaleDateString(undefined, { dateStyle: `full` })}
-				</time>}
-
-				{updatedDate && <div>Last updated on <time>{updatedDate}</time></div>}
-				<hr style="border-top: 1px solid #ddd; margin: 1rem 0; width: 100%"/>
-				<slot/>
-			</article>
-		</main>
-
-		<Footer/>
-	</body>
-</html>
+		{updatedDate && <div>Last updated on <time>{updatedDate}</time></div>}
+		<hr style="border-top: 1px solid var(--title-text-colour); margin: 1ch 0; width: 100%"/>
+		<slot/>
+	</article>
+</Layout>

@@ -1,7 +1,5 @@
 ---
 export interface Props extends astroHTML.JSX.AnchorHTMLAttributes {}
-
-const { href, ...props } = Astro.props
 ---
 
 <a
@@ -10,13 +8,12 @@ const { href, ...props } = Astro.props
 		"text-decoration": `none`,
 		"margin-right": `10px`,
 
-		...href == Astro.url.pathname
+		...Astro.props.href == Astro.url.pathname
 			? { "font-weight": `bolder`, "text-decoration": `underline` }
 			: {}
 	}}
 
-	href={href}
-	{...props}
+	{...Astro.props}
 >
 	<slot/>
 </a>
