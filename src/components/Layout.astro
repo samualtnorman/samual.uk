@@ -1,7 +1,7 @@
 ---
-import "/styles/global.css"
+import "../styles/global.css"
 import HeaderLink from "./HeaderLink.astro";
-import { SITE_DESCRIPTION, SITE_TITLE } from "/config"
+import { SITE_DESCRIPTION, SITE_TITLE } from "../config"
 
 export type Props = { title?: string } & astroHTML.JSX.HTMLAttributes
 
@@ -42,7 +42,7 @@ const { title = SITE_TITLE, ...props } = Astro.props
 		</noscript>
 
 		<script>
-			import { setTheme } from "/lib"
+			import { setTheme } from "../lib"
 
 			declare const changeThemeAnchorElement: HTMLAnchorElement
 			declare const discordAnchorElement: HTMLAnchorElement

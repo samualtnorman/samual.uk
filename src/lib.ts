@@ -1,4 +1,4 @@
-import lerp from "@samual/lib/lerp"
+import { lerp } from "@samual/lib/lerp"
 
 export const generateRandomInteger = (max: number) => Math.floor(Math.random() * (max + 1))
 

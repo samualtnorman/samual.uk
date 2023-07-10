@@ -1,8 +1,8 @@
 ---
-import Layout from "/components/Layout.astro"
+import Layout from "../../components/Layout.astro"
 
 const posts: {
-	frontmatter: import("/layouts/BlogPost.astro").Props["content"],
+	frontmatter: import("../../layouts/BlogPost.astro").Props["content"],
 	url: string
 }[] = await Astro.glob("./*")
 ---
