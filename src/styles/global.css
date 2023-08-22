@@ -17,7 +17,9 @@ body {
 
 h1, h2, h3, h4, h5, h6, strong, b {
 	color: var(--title-text-colour);
-	font-family: monospace
+	font-family: monospace;
+	margin-bottom: 0.5rem;
+	margin-top: 0;
 }
 
 code {
@@ -38,4 +40,12 @@ a:hover, a:hover code {
 main {
 	text-align: left;
 	display: inline-block;
+}
+
+:is(h1, h2, h3, h4, h5, h6) + ul {
+	margin-top: 0
+}
+
+ul {
+	padding-left: 1rem
 }
