@@ -13,6 +13,7 @@ layout: ../layouts/BlogPost.astro
 
 ## Hackmud
 - [Binmat simulator](https://github.com/samualtnorman/binmat)
+- Binmat AI
 - [Chat API bindings for Node.js](https://github.com/samualtnorman/hackmud-chat)
 - [Script manager](https://github.com/samualtnorman/hackmud-script-manager)
 - [Colour code highlighter extension for VS Code](https://github.com/samualtnorman/hackmud-color)
