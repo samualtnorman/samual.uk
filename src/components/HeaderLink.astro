@@ -10,7 +10,7 @@ export interface Props extends astroHTML.JSX.AnchorHTMLAttributes {}
 
 		...Astro.props.href == Astro.url.pathname
 			? { "font-weight": `bolder`, "text-decoration": `underline` }
-			: {}
+			: undefined
 	}}
 
 	{...Astro.props}
