@@ -3,6 +3,8 @@ title: Projects
 layout: ../layouts/BlogPost.astro
 ---
 
+Go star my repos.
+
 - [Voltorb Flip recreation](/voltorb-flip/)
 	- [GitHub](https://github.com/samualtnorman/voltorb-flip)
 - [Sweet language](https://github.com/samualtnorman/sweet)
