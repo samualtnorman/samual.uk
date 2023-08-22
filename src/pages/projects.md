@@ -20,5 +20,6 @@ layout: ../layouts/BlogPost.astro
 - [Scripting environment template](https://github.com/samualtnorman/hackmud-environment)
 
 ## Personal Configs
+- [ESLint](https://github.com/samualtnorman/eslint-config)
 - [Dot files](https://github.com/samualtnorman/dotfiles)
-- [AstroNvim config](https://github.com/samualtnorman/astronvim_config)
+- [AstroNvim](https://github.com/samualtnorman/astronvim_config)
