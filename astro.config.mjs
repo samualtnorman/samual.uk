@@ -2,6 +2,7 @@ import mdx from "@astrojs/mdx"
 import sitemap from "@astrojs/sitemap"
 import htmlMinify from "@frontendista/astro-html-minify"
 import relativeLinks from "astro-relative-links"
+import rehypeTargetBlank from "rehype-target-blank"
 
 /** @type {import("astro").AstroUserConfig} */ export default {
 	site: `https://samual.uk/`,
@@ -26,5 +27,6 @@ import relativeLinks from "astro-relative-links"
 		})
 	],
 	server: { port: 8080, host: true },
-	trailingSlash: `always`
+	trailingSlash: `always`,
+	markdown: { rehypePlugins: [ rehypeTargetBlank ] }
 }

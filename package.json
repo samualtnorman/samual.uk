@@ -17,6 +17,7 @@
 		"@samual/lib": "0.8.1",
 		"astro": "^2.10.12",
 		"astro-relative-links": "^0.3.4",
+		"rehype-target-blank": "1.0.5",
 		"rollup": "^3.28.1"
 	}
 }
