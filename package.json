@@ -10,14 +10,13 @@
 		"deploy": "cp -r dist/* /mnt/nas/sites/samual.uk/"
 	},
 	"devDependencies": {
-		"@astrojs/mdx": "^2.0.4",
+		"@astrojs/mdx": "^2.0.5",
 		"@astrojs/rss": "^4.0.2",
-		"@astrojs/sitemap": "^3.0.4",
+		"@astrojs/sitemap": "^3.0.5",
 		"@frontendista/astro-html-minify": "^2.0.0",
 		"@samual/lib": "0.9.1",
-		"astro": "^4.1.2",
+		"astro": "^4.2.1",
 		"astro-relative-links": "^0.3.7",
-		"rehype-target-blank": "1.0.5",
-		"rollup": "^4.9.5"
+		"rehype-target-blank": "1.0.5"
 	}
 }
