@@ -12,17 +12,27 @@ import rehypeTargetBlank from "rehype-target-blank"
 		relativeLinks(),
 		htmlMinify({
 			html: {
+				collapseBooleanAttributes: true,
+				collapseWhitespace: true,
+				decodeEntities: true,
+				html5: true,
+				minifyCSS: true,
+				minifyJS: true,
 				processConditionalComments: true,
+				processScripts: [ "text/html" ],
 				removeAttributeQuotes: true,
 				removeComments: true,
 				removeEmptyAttributes: true,
 				removeOptionalTags: true,
+				removeRedundantAttributes: true,
+				removeScriptTypeAttributes: true,
+				removeStyleLinkTypeAttributes: true,
 				removeTagWhitespace: true,
+				sortAttributes: true,
 				sortClassName: true,
+				trimCustomFragments: true,
 				useShortDoctype: true,
-				preserveLineBreaks: false,
-				conservativeCollapse: false,
-				collapseInlineTagWhitespace: false
+				ignoreCustomComments: []
 			}
 		})
 	],
