@@ -20,7 +20,7 @@ const { content: { title, pubDate: publishedDate, updatedDate, heroImage } } = A
 			<img style="max-width: 100%; height: auto" width="720" height="360" src={heroImage} alt=""/>
 		}
 
-		<h1 style="font-size: 2em; margin: 0.25em 0 0; display: inline">{title}</h1>
+		<h1 style="margin: 0.25em 0 0; display: inline">{title}</h1>
 
 		{publishedDate && <time style="float: right; margin: 1ch 0 1ch 1ch">
 			{new Date(publishedDate).toLocaleDateString(undefined, { dateStyle: `full` })}
