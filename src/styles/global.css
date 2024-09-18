@@ -1,25 +1,48 @@
+*, *::before, *::after {
+	box-sizing: border-box
+}
+
+* {
+	margin: 0
+}
+
 :root {
+	font-size: clamp(16px, 3vw, 20px);
+	line-height: 1.5;
+	font-family: sans-serif;
+	margin: auto;
+	max-width: min(65ch, calc(100% - 2em));
+	text-align: center;
+	-webkit-font-smoothing: antialiased;
 	--text-colour: rgb(191, 223, 191);
 	--title-text-colour: rgb(223, 239, 223);
-	--background-colour: rgb(8, 16, 8)
+	--background-colour: rgb(8, 16, 8);
+	color: var(--text-colour);
+	background-color: var(--background-colour)
 }
 
 body {
-	font-family: sans-serif;
-	margin: auto;
-	padding: 20px;
-	max-width: 70ch;
-	text-align: center;
-	background-color: var(--background-colour);
-	color: var(--text-colour);
-	font-size: clamp(16px, 3vw, 20px)
+	display: flex;
+	flex-direction: column;
+	min-height: 100svh;
 }
 
-h1, h2, h3, h4, h5, h6, strong, b {
+img, picture, video, canvas, svg {
+	display: block;
+	max-width: 100%
+}
+
+input, button, textarea, select {
+	font: inherit
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+	overflow-wrap: break-word
+}
+
+h1, h2, h3, h4, h5, h6 {
 	color: var(--title-text-colour);
-	font-family: monospace;
-	margin-bottom: 0.5rem;
-	margin-top: 0;
+	font-family: serif
 }
 
 code {
@@ -27,12 +50,12 @@ code {
 }
 
 a {
-	text-shadow: 0 0 1px, 0 0 5px;
 	color: var(--title-text-colour);
+	text-shadow: 0 0 1px, 0 0 5px;
 	text-decoration: unset
 }
 
-a:hover, a:hover code {
+a:hover, a:hover code, #discordClickable:hover, #changeThemeClickable:hover {
 	color: white;
 	text-decoration: underline
 }
@@ -40,12 +63,22 @@ a:hover, a:hover code {
 main {
 	text-align: left;
 	display: inline-block;
-}
-
-:is(h1, h2, h3, h4, h5, h6) + ul {
-	margin-top: 0
+	align-self: center
 }
 
 ul {
-	padding-left: 1rem
+	padding-left: 2ex
+}
+
+p {
+	margin-bottom: 1em;
+}
+
+#discordClickable, #changeThemeClickable {
+	background: unset;
+	border: unset;
+	cursor: pointer;
+	padding: unset;
+	color: var(--title-text-colour);
+	text-shadow: 0 0 1px, 0 0 5px;
 }

@@ -44,22 +44,22 @@ const { title = SITE_TITLE, ...props } = Astro.props
 		<script>
 			import { setTheme } from "../lib"
 
-			declare const changeThemeAnchorElement: HTMLAnchorElement
-			declare const discordAnchorElement: HTMLAnchorElement
+			declare const changeThemeClickable: HTMLAnchorElement
+			declare const discordClickable: HTMLAnchorElement
 
 			setTheme()
 
-			addEventListener(`DOMContentLoaded`, () =>
-				requestAnimationFrame(() => document.body.style.transition = `250ms ease-in-out`)
-			)
+			addEventListener(`DOMContentLoaded`, () => requestAnimationFrame(() =>
+				document.documentElement.style.transition = `background-color 250ms ease-in-out, color 250ms ease-in-out`
+			))
 
-			changeThemeAnchorElement.addEventListener(`click`, event => {
+			changeThemeClickable.addEventListener(`click`, event => {
 				event.preventDefault()
 				sessionStorage.clear()
 				setTheme()
 			})
 
-			discordAnchorElement.addEventListener(`click`, async event => {
+			discordClickable.addEventListener(`click`, async event => {
 				event.preventDefault()
 				await navigator.clipboard.writeText(`samualn`)
 				alert(`Discord username copied to clipboard`)
@@ -69,13 +69,15 @@ const { title = SITE_TITLE, ...props } = Astro.props
 	</head>
 
 	<body>
+		<div style="flex-grow: 1; min-height: 1em"/>
+		
 		<header style="margin-bottom: 2em">
-			<h2 style="margin: 0.5em 0">
+			<span style="font-family: monospace; font-size: 1.5em; font-weight: bold; line-height: 0">
 				{SITE_TITLE}<br>
 				{`-`.repeat(SITE_TITLE.length)}
-			</h2>
+			</span>
 
-			<nav>
+			<nav style="display: flex; gap: 1rem; margin: auto; justify-content: center; flex-wrap: wrap">
 				<HeaderLink href="/">Home</HeaderLink>
 				<HeaderLink href="/projects/">Projects</HeaderLink>
 				<HeaderLink href="/blog/">Blog</HeaderLink>
@@ -88,18 +90,16 @@ const { title = SITE_TITLE, ...props } = Astro.props
 
 		<footer style="margin-top: 2em">
 			<p>
-				Contact:
-				<a href="mailto:me@samual.uk">Email</a>
-
-				<span class="jsOnly">
-					| <a id="discordAnchorElement" href="">Discord</a>
-				</span>
+				Contact: <a href="mailto:me@samual.uk">Email</a>
+				<span class="jsOnly">| <button id="discordClickable">Discord</button></span>
 			</p>
 
-			<p><a class="jsOnly" id="changeThemeAnchorElement" href="">Don't like the colour theme?</a></p>
+			<p class="jsOnly"><button id="changeThemeClickable">Don't like the colour theme?</button></p>
 		</footer>
 
-		<img src="https://ipv4.games/claim?name=samual.uk" hidden="">
-		<img src="https://ipv4.quest/claim?name=samual.uk" hidden="">
+		<img src="https://ipv4.games/claim?name=samual.uk" hidden="" style="display: none">
+		<img src="https://ipv4.quest/claim?name=samual.uk" hidden="" style="display: none">
+
+		<div style="flex-grow: 2"/>
 	</body>
 </html>
