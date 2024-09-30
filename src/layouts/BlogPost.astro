@@ -22,7 +22,7 @@ const { content: { title, pubDate: publishedDate, updatedDate } } = Astro.props
 		</time>}
 
 		{updatedDate && <div>Last updated on <time>{updatedDate}</time></div>}
-		<hr style="border-top: 1px solid var(--title-text-colour); margin: 1ch 0; width: 100%"/>
+		<hr style="border-top: 1px solid var(--title-text-colour); margin-bottom: 1rem; width: 100%"/>
 		<slot/>
 	</article>
 </Layout>
