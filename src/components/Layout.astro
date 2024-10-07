@@ -74,7 +74,7 @@ const { title = SITE_TITLE, ...props } = Astro.props
 		<header style="margin-bottom: 2em">
 			<span style="font-family: monospace; font-size: 1.5em; font-weight: bold; line-height: 0">
 				{SITE_TITLE}<br>
-				{`-`.repeat(SITE_TITLE.length)}
+				<span aria-hidden="true">{`-`.repeat(SITE_TITLE.length)}</span>
 			</span>
 
 			<nav style="display: flex; gap: 1rem; margin: auto; justify-content: center; flex-wrap: wrap">
