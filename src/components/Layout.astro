@@ -27,12 +27,6 @@ const { title = SITE_TITLE, ...props } = Astro.props
 		<meta property="og:title" content={title}/>
 		<meta property="og:description" content={SITE_DESCRIPTION}/>
 
-		<!-- Twitter -->
-		<meta property="twitter:card" content="summary_large_image"/>
-		<meta property="twitter:url" content={Astro.url}/>
-		<meta property="twitter:title" content={title}/>
-		<meta property="twitter:description" content={SITE_DESCRIPTION}/>
-
 		<noscript>
 			<style>
 				.jsOnly {
@@ -82,7 +76,7 @@ const { title = SITE_TITLE, ...props } = Astro.props
 				<HeaderLink href="/projects/">Projects</HeaderLink>
 				<HeaderLink href="/blog/">Blog</HeaderLink>
 				<HeaderLink href="https://github.com/samualtnorman" target="_blank">GitHub</HeaderLink>
-				<HeaderLink href="https://twitter.com/SamualTNorman" target="_blank">Twitter</HeaderLink>
+				<HeaderLink href="https://bsky.app/profile/samual.uk" target="_blank">Bluesky</HeaderLink>
 			</nav>
 		</header>
 
